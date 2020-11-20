@@ -1,0 +1,113 @@
+<!-- Trying out some Javascript -->
+<!-- Try to mock up what I will use to contorl the Rpi -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Name of the page-->
+        <title>RPi GPIO Control</title>
+        <!-- The meta charset is the character encoding for the webpage -->
+        <meta charset="UTF-8">
+        <!-- Can create custom meta feilds to store infomation about the website -->
+        <meta name="description" content="Some RPi GPIO Control Mockups">
+        <meta name="author" content="Kyle Mahan">
+
+        <!-- Start of the Javascript stuff -->
+        <script>
+            var GPIO_Array = [1 ,1,1 ,1];
+            var Test_Array = [0,0];
+
+            function toggleGPIO(GPIO_Select){
+                document.getElementById("debug3").innerHTML = "Initial GPIO_Array[GPIO_Select] = "+ GPIO_Array[GPIO_Select];
+
+                if (GPIO_Array[GPIO_Select] == 2) {
+                    GPIO_Array[GPIO_Select] = 1;
+                    document.getElementById("GPIO"+GPIO_Select+"_Status").innerHTML = 
+                    "GPIO"+GPIO_Select+": "+ GPIO_Array[GPIO_Select];
+                    document.getElementById("debug").innerHTML = "Got into if == 2 condition";
+                    document.getElementById("debug2").innerHTML = "GPIO_Array[GPIO_Select] = "+ GPIO_Array[GPIO_Select];
+                    
+                }
+
+                else if (GPIO_Array[GPIO_Select] == 1) {
+                    GPIO_Array[GPIO_Select] = 2;
+                    document.getElementById("GPIO"+GPIO_Select+"_Status").innerHTML = 
+                    "GPIO"+GPIO_Select+": "+ GPIO_Array[GPIO_Select];
+                    document.getElementById("debug").innerHTML = "Got into if == 1 condition";
+                    document.getElementById("debug2").innerHTML = "GPIO_Array[GPIO_Select] = "+ GPIO_Array[GPIO_Select];
+                }
+
+                
+
+                document.getElementById("GPIO0_Status_e").innerHTML = "GPIO0: " + GPIO_Array[0];
+                document.getElementById("GPIO1_Status_e").innerHTML = "GPIO1: " + GPIO_Array[1];
+                document.getElementById("GPIO2_Status_e").innerHTML = "GPIO2: " + GPIO_Array[2];
+                document.getElementById("GPIO3_Status_e").innerHTML = "GPIO3: " + GPIO_Array[3];
+            }
+            
+            function shuffleArray(){
+                    Test_Array[0] = Math.random();
+                    Test_Array[1] = Math.random();
+
+                    if(Test_Array[0] > 0.5){
+                        document.getElementById("test1_status").innerHTML = Test_Array[0] + " Is greater than 0.5";
+                    }
+
+                    if(Test_Array[0] < 0.5){
+                        document.getElementById("test1_status").innerHTML = Test_Array[0] + " Is less than 0.5";
+                    }
+
+                    document.getElementById("test1").innerHTML = "Test1: " + Test_Array[0];
+                    document.getElementById("test2").innerHTML = "Test2: " + Test_Array[1];
+            }
+            
+        </script>
+    </head>
+
+    <!-- Main Body for the webpage -->
+    <body>
+        <h1>RPI GPIO Control</h1>
+        <h2> GPIO Toggles </h2>
+            <p>
+                <button id ='GPIO0' onclick="toggleGPIO(0)">Toggle GPIO 0</button>
+                <button id ='GPIO1' onclick="toggleGPIO(1)">Toggle GPIO 1</button>
+                <button id ='GPIO2' onclick="toggleGPIO(2)">Toggle GPIO 2</button>
+                <button id ='GPIO3' onclick="toggleGPIO(3)">Toggle GPIO 3</button>
+            </p>
+            <p>
+                <button id ='Shuffle_Test' onclick="shuffleArray()">Shuffle The Test Array</button>
+            </p>
+        
+        <h2> Current GPIO State </h2>
+            <p>
+                <ul>
+                    <li id="GPIO0_Status">GPIO0: 0</li>
+                    <li id="GPIO1_Status">GPIO1: 0</li>
+                    <li id="GPIO2_Status">GPIO2: 0</li>
+                    <li id="GPIO3_Status">GPIO3: 0</li>
+                </ul>
+
+                <ul>
+                    <li id="GPIO0_Status_e">GPIO0: 0</li>
+                    <li id="GPIO1_Status_e">GPIO1: 0</li>
+                    <li id="GPIO2_Status_e">GPIO2: 0</li>
+                    <li id="GPIO3_Status_e">GPIO3: 0</li>
+                </ul>
+            </p>
+        
+        <h2> Test Array </h2>
+        <p>
+            <ul>
+                <li id="test1">Test1: 0</li>
+                <li id="test2">Test2: 0</li>
+            </ul>
+
+            <ul>
+                <li id="test1_status">Test1: 0</li>
+                <li id="test2_status">Test2: 0</li>
+            </ul>
+            <p id="debug"></p>
+            <p id="debug2"></p>
+            <p id="debug3"></p>
+        </p>
+    </body>
+</html>

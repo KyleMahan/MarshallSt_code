@@ -1,0 +1,30 @@
+/* 
+This is an external stylesheet for an html document.
+This works the same as the <style> section in an html doc but external.
+*/
+
+h1 {
+    text-align: center;
+    color: rebeccapurple;
+    font-size: 50px;
+}
+h2 {
+    text-align: left;
+    color: #bd9c08a8;
+    text-decoration: underline;
+}
+p {
+    color:darkgreen;
+}
+
+#nav {
+    overflow: auto;
+}
+#nav li {
+    float: left;
+    padding: auto;
+    margin: 0 15px;
+}
+#nav li:hover {
+    background: darkgrey;
+}

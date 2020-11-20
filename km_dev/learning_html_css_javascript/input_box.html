@@ -1,0 +1,38 @@
+<!-- Trying out some Javascript -->
+<!-- Try to mock up what I will use to contorl the Rpi -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Name of the page-->
+        <title>Input Box Test</title>
+        <!-- The meta charset is the character encoding for the webpage -->
+        <meta charset="UTF-8">
+        <!-- Can create custom meta feilds to store infomation about the website -->
+        <meta name="description" content="Some RPi GPIO Control Mockups">
+        <meta name="author" content="Kyle Mahan">
+
+        <script>
+            function grabinfo(){
+                document.getElementById("entered_pin_num").innerHTML=document.getElementById("pin_num").value;
+                document.getElementById("entered_pin_value").innerHTML=document.getElementById("pin_value").value;
+            }
+        </script>
+    </head>
+    <body>
+        <h1> Trying Out Input Boxes </h1>
+        <form>
+            <label for="pin_num">GPIO Pin:</label>
+            <input type="number" id="pin_num" name="pin_num" value=""><br>
+
+            <label for="pin_value">GPIO Pin:</label>
+            <input type="text" id="pin_value" name="pin_value" value="HIGH or LOW"><br>
+        </form>
+        <p>
+            <ul>
+                <li id="entered_pin_num"></li>
+                <li id="entered_pin_value"></li>
+            </ul>
+        </p>
+        <button id="Input_Button" onclick ="grabinfo()">Submit</button>
+    </body>
+</html>

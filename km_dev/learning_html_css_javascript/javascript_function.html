@@ -1,0 +1,40 @@
+<!-- Trying out some Javascript -->
+<!-- Trying to have a button that switches between two pictures-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title> 
+            Javascript LED
+        </title>
+
+        <!-- The meta charset is the character encoding for the webpage -->
+        <meta charset="UTF-8">
+
+        <!-- Can create custom meta feilds to store infomation about the website -->
+        <meta name="description" content="This is my first webpage.">
+        <meta name="author" content="Kyle Mahan">
+
+        <!-- Style Stuff -->
+        <style>
+            h1 {
+                text-align:center;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h1> Here is an LED </h1>
+        <p>
+            <img id="LED" src="html_sample_images/red_led.jpg" 
+            alt="Picture of an LED" width="600" height="600">
+        </p>
+        <p>
+            <button onclick="document.getElementById('LED').src=
+            'html_sample_images/red_led.jpg'">Show a red LED
+            </button>
+            <button onclick="document.getElementById('LED').src=
+            'html_sample_images/led_diagram.png'">Show a LED diagram
+            </button>
+        </p>
+    </body>
+</html>

@@ -1,0 +1,42 @@
+<!-- Trying out some Javascript -->
+<!-- Display a counter that shows how many times a button has been pressed -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- The title is the name of the page as it appears in the tab -->
+        <title> 
+            Counter
+        </title>
+
+        <!-- The meta charset is the character encoding for the webpage -->
+        <meta charset="UTF-8">
+
+        <!-- Can create custom meta feilds to store infomation about the website -->
+        <meta name="description" content="This is my first webpage.">
+        <meta name="author" content="Kyle Mahan">
+    </head>
+
+    <body>
+        <h1> Button Counter </h1>
+        <h2> Here is a button </h2>
+        <p>
+            <button onclick="incrementCounter()">Increment Counter</button>
+            <button onclick="resetCounter()">Reset Counter</button>
+        </p>
+        <h2> Here is the counter </h2>
+        <p >
+            <a id = 'counter'>0</a>
+        </p>
+        <script type="text/javascript">
+            var tracker = 0;
+            function incrementCounter(){
+                tracker += 1;
+                document.getElementById('counter').innerHTML = tracker;
+            };
+            function resetCounter(){
+                tracker = 0;
+                document.getElementById('counter').innerHTML = tracker;
+            };
+        </script>
+    </body>
+</html>
