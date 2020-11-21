@@ -1,0 +1,43 @@
+<!-- Test HTML Page for the node js communications -->
+<!DOCTYPE html>
+<html>
+    <!-- Head Section -->
+    <head>
+        <title>Node JS | HTML Communication Test</title>
+    </head>
+
+    <!-- Body Section -->
+    <body>
+        <h1>Control LED light</h1>
+        <input id="checkbox_test" type="checkbox">Test Checkbox
+
+        <!-- Scripts that allows for communication with the server -->
+        <!-- load socket.io - client and connect to the host that serves the page -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.3/socket.io.js"></script>
+
+        <!-- Script that communicates with the server -->
+        <script>
+            // Load socket.io-client and connect to the host that serves the page
+            var socket = io();
+            // Do this when the page loads
+            window.addEventListener("load", function(){
+                var checkbox_status = document.getElementById('checkbox_test');
+
+                // Add an event listener for when the checkbox changes
+                checkbox_status.addEventListener("change", function(){
+                    // Send button status to the server (as 1 or 0)
+                    socket.emit("checkbox_test", Number(this.checked));
+                });
+            });
+
+            // Get the status of the button from the client
+            socket.on('checkbox_test', function(data){
+                // Change the button status based on the push button on the server side
+                document.getElementById("checkbox_test").checked = data;
+
+                // Send the push button status back to the server
+                socket.emit("checkbox_test", data); 
+            });
+        </script>
+    </body>
+</html>

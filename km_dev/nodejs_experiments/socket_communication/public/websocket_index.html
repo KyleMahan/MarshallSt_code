@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<hmtl>
+    <!-- Head Section -->
+    <head>
+        <title>Websocket Test</title>
+    </head>
+
+    <!-- Body Section -->
+    <body>
+        <h1> Websocket Test Page </h1>
+        <p1> Check the console for messages </p1>
+
+        <h2> Communication Test with Node JS Server </h2>
+        <p>
+            <button onclick="msg_nodejs()"> Sent message to nodejs </button>
+            <button onclick="rst_msg_nodejs()"> Reset Button Counter </button>
+        </p>
+    </body>
+
+    <!-- Script for the websocket connection -->
+    <script>
+        // Set the address of the websocket connection
+        // This points it at the local host on port 8080
+        const ws = new WebSocket('ws://localhost:8080/');
+
+        // Websocket open message
+        ws.onopen = function(){
+            // This posts a message to the web browser console. Can be found by hitting F12
+            console.log('Websocket Client Connected');
+
+            // This sends messages to the node.js server
+            ws.send('WebSocket Client Connected')
+            ws.send('Hi this is the web client.');
+        };
+
+        // Display revieved data
+        ws.onmessage = function(e){
+            console.log("Received: '" + e.data + "'")
+        };
+
+        // Send a message to the node js server
+        // This works
+        function msg_nodejs(){
+            ws.send('Button Pressed')
+        };
+
+        function rst_msg_nodejs(){
+            ws.send('Button Reset')
+        };
+    </script>
+</hmtl>
