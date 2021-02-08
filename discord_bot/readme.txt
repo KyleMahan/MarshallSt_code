@@ -1,0 +1,1 @@
+Creating a custom discord bot for "The 706" discord server
