@@ -17,13 +17,21 @@ client = discord.Client()
 
 @client.event
 async def on_ready():
+    # Connect to the specified Guilds (Servers)
     for guild in client.guilds:
         if guild.name == GUILD:
             break
 
+    # Print a message for the server that you joined
     print(
         f'{client.user} is connected to the following guild:\n'
         f'{guild.name}(id: {guild.id})'
     )
+
+    # Add in additional commands now
+
+    #Example command to print server members
+    members = '\n - '.join([member.name for member in guild.members])
+    print(f'Guild Members:\n - {members}')
 
 client.run(TOKEN)
