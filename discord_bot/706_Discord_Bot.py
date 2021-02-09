@@ -35,7 +35,7 @@ async def on_ready():
     print(f'Guild Members:\n - {members}')
 
     # Trying to list the channels
-    channels = '\n - '.join([channel.name for channel in guild.channel])
+    channels = '\n - '.join([TextChannel.name for TextChannel in guild.TextChannel])
 
 """
 # Trying a new client event to monitor messages in the dev channel
